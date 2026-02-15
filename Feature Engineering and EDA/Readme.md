@@ -6,7 +6,7 @@ How to run the notebooks and what they do:
 - [1] Capstone_HL_TargetY_v2.ipynb: generates the synthetic "Access Disruption Risk Index" (ADRI), which will serve as the target variable (y) in future analysis; exports "master_df_v2.xlsx".
 - [2] Capstone_HL_featureengineering.ipynb: notebook which generates features (X) using the CMS Open Enrollment Period Public Use Files (OEP PUF) and appends; also generates a profile report for features that will be deployed for modeling later in the project; requires "master_df_v2.xlsx" as input file; exports "master_df_with_features.xlsx". 
 - [3] Capstone_HL_corranalysis.ipynb: a separate notebook which loads the output from [2] and runs a Pearson's Correlation Analysis; requires "master_df_with_features.xlsx" as input file.
-- [X] Baseline_Model.ipynb: runs a Logistic Regression model using the output from [2] to provide a baseline model for comparison later on; requires "master_df_with_features.xlsx" as input file.
+- [X ] Baseline_Model.ipynb: runs a Logistic Regression model using the output from [2] to provide a baseline model for comparison later on; requires "master_df_with_features.xlsx" as input file.
 
 Notebooks [1] and [2] should be run first and in order, prior to running [3] and [X].
 ____________________________________________________________________________________________________________
