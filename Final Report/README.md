@@ -58,11 +58,11 @@ For this project, publicly available population health data was integrated from 
 
 **K-Means Clustering:**  Used to segment the U.S. into actionable community archetypes rather than treating all "at-risk" counties as identical.
 
-Link to K-Means Analysis ipynb: [Link]
+K-Means Analysis ipynb: _See "[4] Capstone_HL_kmeans_clustering.ipynb"_
 
 **XGBoost Classifier:**  Chosen for its superior performance on tabular data and its ability to provide interpretability through feature importance, which is essential for business storytelling.
 
-Link to XGBoost Model ipynb: [Link]
+Link to XGBoost Model ipynb: _See "[6] Capstone_HL_XGBoost (threshold).ipynb"_
 
 **6. Model Evaluation and Important Findings**
 
@@ -74,13 +74,13 @@ The final tuned XGBoost model achieved a test ROC-AUC of 0.8675, indicating exce
 
 **Precision (0.64):**  Flagged counties have a 64% probability of being true disruption sites, ensuring efficient resource allocation.
 
-**Feature Importance Visualization:**  A detailed breakdown of the variables driving these predictions can be found here: [Link to Feature Importance Horizontal Bar Plot]. This plot highlights the top features that hold the most weight in the model's decision-making process.
+**Feature Importance Visualization:**  A detailed breakdown of the variables driving these predictions is available (_see "XGBoost_FeatureImportance (Gain).png"_). This plot highlights the top features that hold the most weight in the model's decision-making process.
 
 **B. Findings: The Three Community Profiles**
 
-The unsupervised K-Means clustering analysis identified three distinct risk archetypes, which can be visualized in high-dimensional space (i.e. PCA plot) here: [Link to PCA Graph of 3 Clusters]. 
+The unsupervised K-Means clustering analysis identified three distinct risk archetypes, which can be visualized in high-dimensional space (_see "KMeansClusterPCA_Graph.png"_). 
 
-For a granular breakdown of the specific metrics for each group, see the full [Link to Cluster Profiles Table].
+For a granular breakdown of the specific metrics for each group, see _"KmeansClusterProfiles.txt"_.
 
 **Cluster 0:**  The "Passive Core" (high volume, high vulnerability): This was the largest group by county count and was characterized by high passive renewal (56.7%). These patients are at risk of "silent churn"—dropping coverage because they didn't realize their costs changed until receiving the first bill.
 
