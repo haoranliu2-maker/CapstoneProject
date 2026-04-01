@@ -93,7 +93,8 @@ For a granular breakdown of the specific metrics for each group, see _"KmeansClu
 **Recommendations for Genentech**
 
 **Targeted Metro Strategy:**  Focus Key Account Managers on the large health systems within Cluster 2 counties, as these hubs hold the highest volume of at-risk patients.
-**Proactive Enrollment Nudges:**  Launch digital engagement campaigns in Cluster 0 counties to combat passive renewal churn before the plan year ends.
+
+**Proactive Enrollment Awareness Campaigns:**  Launch digital engagement campaigns in Cluster 0 counties to combat passive renewal churn before the plan year ends.
 
 **Health Equity Prioritization:**  Use SVI drivers like Disability (EP_DISABL) and AIAN Population % to justify the deployment of bilingual patient educators and specialized access support in vulnerable zones.
 
