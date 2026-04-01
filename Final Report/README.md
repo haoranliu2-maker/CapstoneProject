@@ -38,21 +38,21 @@ For this project, publicly available population health data was integrated from 
 
 **Target Variable (ADRI) Calculation:**  The Access Disruption Risk Index (ADRI) was developed as a synthetic label. This was calculated as the RMS of two sub-indices: the "Subsidy Cliff Risk" and the "Low-Income Risk". Using RMS was a deliberate analytical choice to ensure that a high score in either risk vector would elevate the county's total risk profile.
 
-**Composite Feature Creation:**  I created a plan_value_density feature, calculated as the ratio of Gold enrollees to the sum of Gold and Bronze enrollees. This provides the model with a single "risk appetite" metric for each county.
+**Composite Feature Creation:**  A new feature, plan_value_density, was developed and calculated as the ratio of Gold enrollees to the sum of Gold and Bronze enrollees. This provides the model with a single "risk appetite" metric for each county.
 
 **C. Encoding and Analysis Steps**
 
-**Categorical Encoding:**  While most variables were numeric, the K-Means Cluster Assignments (0, 1, 2) were treated as categorical identifiers. To prevent the XGBoost model from assuming a mathematical order between clusters (i.e., that Cluster 2 is "greater than" Cluster 1), I applied one-hot encoding to the cluster labels. This allowed the model to treat each community archetype as a distinct binary feature.
+**Categorical Encoding:**  While most variables were numeric, the K-Means Cluster Assignments (0, 1, 2) were treated as categorical identifiers. To prevent the XGBoost model from assuming a mathematical order between clusters (i.e., that Cluster 2 is "greater than" Cluster 1), one-hot encoding was applied to the cluster labels. This allowed the model to treat each community archetype as a distinct binary feature.
 
 **Feature Scaling:**  For the K-means clustering phase, all features were processed using StandardScaler to reach a mean of 0 and a standard deviation of 1. This was critical because variables like “avg_premium_before_APTC” (ranging in the hundreds) would otherwise mathematically overwhelm percentage-based features (ranging from 0 to 1).
 
-**Collinearity Analysis:**  I performed a Correlation Matrix analysis to identify redundant features. For example, I excluded feat_pct_white from the initial clustering to avoid the "dummy variable trap" since the racial percentages sum to 100%, opting to use it only in the post-modeling evaluation phase.
+**Collinearity Analysis:**  A Correlation Matrix analysis was used to identify redundant features. For example, feat_pct_white was excluded from the initial clustering to avoid the "dummy variable trap" since the racial percentages sum to 100%, opting to use it only in the post-modeling evaluation phase.
 
 **D. Data Splitting**
 
 **Train/Test Strategy:**  The final dataset of ~2,100 counties was split using an 80/20 stratified split. Stratification was performed based on the ADRI risk tiers to ensure that the test set contained a representative proportion of the "Critical Risk" (Minority Class) counties.
 
-**Imbalance Handling:**  Due to the relatively small number of "High Risk" counties (Class 1), I utilized the scale_pos_weight parameter in XGBoost during the training phase to penalize misclassifications of the minority risk class more heavily.
+**Imbalance Handling:**  Due to the relatively small number of "High Risk" counties (Class 1), the scale_pos_weight parameter in XGBoost was used during the training phase to penalize misclassifications of the minority risk class more heavily.
 
 **5. Modeling**
 
